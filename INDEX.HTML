@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+    <title>PORTFOLIO</title>
+    <style>
+         *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            /* background-color:aqua; */
+      height: 100vh;
+    /* text-align: center; */
+    background-color: var(--background-color);
+    padding: 0.1rem;
+        }
+        .header-con{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* border: 2px solid red; */
+            padding: 5px;
+            margin: 15px auto;
+        }
+  .logo{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    text-decoration: none; /* Prevent underline on the link */
+  }
+  .logo img{
+    width: 30px;
+  }
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none; /* Prevent underline on the text */
+}
+  .logo p{
+    font-size: larger;
+    text-decoration: none;
+    /* border: 2px solid red ; */
+    color: black;
+  }
+
+        .nav{
+            display: none;
+            gap: 3rem;
+            /* border: 2px solid red; */
+            padding: 5px;
+            margin-right: 50px;
+        }
+        .nav a{
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 500;
+            color: black;
+        }
+        .nav a:hover{
+          color: blue;
+          border-bottom: 2px solid blue;
+        }
+        .content{
+            /* max-width: 1022px; */
+            /* height: 200px; */
+            /* border: 2px solid red; */
+            display: flex;
+            flex-direction:  column;
+            align-items: center;
+            justify-content: space-between;
+             padding: 20px 10px;
+      animation: slideFromLeft 2s ease forwards;
+          opacity: 0;
+        }
+        @keyframes slideFromLeft {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+}
+      @media screen and (min-width:768px){
+         .content{
+            flex-direction: row;
+         }
+      }
+        .left{
+           width: 60%;
+           height: 100%;
+           display: flex;
+           flex-direction: column;
+           gap: 1.5rem;
+           justify-content: space-between;
+           align-items: left;
+         border: 2px solid rgb(159, 154, 154);
+         border-radius: 10px;
+         padding: 20px;
+         /* margin-right: 2px; */
+        }
+        .hi{
+            font-size: 30px;
+            font-weight: 800;
+        }
+        .right{
+        width: 40%;
+        height: auto;
+        /* border: 2px solid red; */
+        margin: 10px;
+        }
+        .right img{
+            width:80% ;
+            height: 80%;
+            border-radius:50%;
+        }
+        .name,.skill{
+            font-size: 25px;
+            font-weight: 800;
+        }
+        .name span{
+            color: rgb(241, 25, 25);
+        }
+        .desc{
+         font-size: 20px;
+
+        }
+        .social-medias{
+            display: flex;
+            flex-direction:row;
+            align-items: center; 
+            gap: 25px;
+        }
+        .social-medias img{
+            width: 20px;
+        }
+         .buttons{
+            display: flex;
+            align-items: center;
+         justify-content:left; 
+            gap: 2rem;
+        }
+        @media screen and (max-width:768px){
+         .buttons{
+            flex-direction: column;
+         }
+         .left{
+            width: 100%;
+         }
+         .right{
+            width: 100%;
+         }
+        }
+     .menu-button{
+        display: block;
+     }
+@media screen and (min-width:768px) {
+    .nav{
+        display: flex;
+    }
+    .menu-button{
+        display: none;
+    }
+    .about-details-container{
+      display: flex;
+        flex-direction: column;
+    }
+}
+
+
+
+
+
+
+
+/* Sidebar styles */
+/* .sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px; 
+  height: 100vh;
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: -10px 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  transition: right 0.3s ease-in-out;
+}
+
+.sidebar.show {
+  right: 0;
+}
+
+.sidebar li {
+  list-style: none;
+  width: 100%;
+}
+
+.sidebar li:hover {
+  background-color: #f0f0f0;
+}
+
+.sidebar li a {
+  color: #333;
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+@media screen and (max-width: 500px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .menu-button {
+    display: none;
+  }
+} */
+
+
+section {
+  padding-top: 4vh;
+  height: auto; /* Changed from fixed height */
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+.section__text__p1,
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.section-container {
+  display: flex;
+  gap: 4rem;
+  height: auto; /* Changed from 80% */
+  flex-wrap: wrap;
+}
+
+.section__pic-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section__pic-container img {
+  height: 400px;
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 2rem;
+}
+
+.about-details-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-containers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.details-container {
+  flex: 1 1 200px;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 2rem;
+  border: rgb(163, 163, 163) 0.1rem solid;
+  text-align: center;
+}
+
+.details-container img {
+  width: 70px;
+}
+
+/* 🔻 Responsive styles for smaller screens */
+@media screen and (max-width: 1024px) {
+  section {
+    margin: 0 5rem;
+  }
+
+  .section-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-details-container {
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  section {
+    margin: 0 2rem;
+  }
+
+  .section__pic-container img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .details-container {
+    padding: 1rem;
+  }
+
+  .details-container img {
+    width: 50px;
+  }
+}
+
+.experience-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+        .frontend-container, .backend-container {
+            margin: 2rem 0;
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            border: 2px solid #dee2e6;
+        }
+        .frontend-container h2, .backend-container h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+        }
+        .skill-item img {
+            width: 50px;
+            height: 50px;
+        }
+        .skill-item p {
+            margin-top: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .icon {
+            width: 50px;
+            height: 50px;
+        }
+        .title {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+
+
+        .section__text__p1 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .about-pic {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+        :root {
+            --background-color: #f0f0f0; /* Light background color */
+            --text-color: #333; /* Dark text color */
+            --primary-color: #007bff; /* Bootstrap primary color */
+        }
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: Arial, sans-serif;
+        }
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .btn-primary:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker shade for hover effect */
+            border-color: #0056b3;
+        }
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+          
+        }
+        /* sidebar css */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px; 
+            height: 100vh;
+            width: 250px;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            box-shadow: -10px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+            transition: right 0.3s ease-in-out;
+        }
+        .sidebar.show {
+            right: 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar li {
+            width: 100%;
+        }
+        .sidebar li:hover {
+            background-color: #f0f0f0;
+        }
+        .sidebar li a {
+            color: #333;
+            font-size: 18px;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            padding: 0.5rem 1rem;
+        }
+        .sidebar li a:hover {
+            color: var(--primary-color);
+            background-color: #e9ecef;
+        }
+        .menu-button {
+            display: block;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        .menu-button svg {
+            width: 28px;
+            height: 28px;
+            fill: #000;
+        }
+        .sidebar li svg {
+            width: 24px;
+            height: 24px;
+            fill: #000;
+            margin-right: 10px;
+        }
+        .sidebar li a:hover svg {
+            fill: var(--primary-color);
+        }
+        .sidebar li a svg {
+            vertical-align: middle;
+        }
+
+        @media screen and (max-width: 500px) {
+            /* .sidebar {
+                width: 100%;
+            }
+            .sidebar ul {
+                flex-direction: column;
+                align-items: center;
+            } */
+        }
+        @media screen and (min-width: 768px) {
+            .menu-button {
+                display: none;
+            }
+            /* .sidebar {
+                position: static;
+                width: auto;
+                height: auto;
+                backdrop-filter: none;
+                box-shadow: none;
+                right: 0;
+            } */
+            .sidebar ul {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+            }
+            .sidebar li {
+                margin-right: 1rem;
+            }
+        }
+        .contactform {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .contactform form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contactform label {
+            font-weight: bold;
+        }
+        .contactform input, .contactform textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contactform button {
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+   <header>
+    <div class="header-con">
+    <a href="#" class="logo">
+ <img src="StudySyn.svg" alt="img">
+ <span class="logo-text">PORTFOLIO</span>
+    </a>
+    <nav class="nav">
+        <a href="#">Home</a>
+       <a href="#about">About</a>
+       <a href="#Experience">Skills</a>
+       <a href="#contact">Contact</a>
+    </nav>
+<!-- Hamburger menu icon -->
+<a href="#" class="menu-button" onclick="showsidebar()">
+  <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#000">
+    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+  </svg>
+</a>
+
+<!-- Sidebar menu -->
+ <div class="sidebar">
+  <ul>
+    <li onclick="closesidebar()">
+      <a href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+          <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+        </svg>
+      </a>
+    </li>
+    <li><a href="INDEX.HTML">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#Experience">skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+ </div>
+    </div>
+   </header>
+   <div class="container">
+    <div class="content">
+        <div class="left">
+         <p class="hi">Hi,</p>
+         <p class="name">I am <span> Sri Krishna</span> </p>
+         <p class="skill">A Frontend Developer</p>
+         <p class="desc"> Aspiring software engineer with a strong foundation in programming languages such as Java, HTML, and CSS. Currently pursuing my Bachelor of Technology degree at Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada. Eager to apply my skills and knowledge to drive innovation and growth in the tech industry.</p>
+         <div class="social-medias">
+                   <a href="#">    <img src="download.png" alt="img"></a>
+                  <a href="#">    <img src="insta.jpg" alt="img"></a>
+                  <a href="#">     <img src="twitter.png" alt="img"></a>
+                  <a href="#">     <img src="git.png" alt="img"></a>
+         </div>
+         <div class="buttons">
+           <a href="https://drive.google.com/file/d/1-YQaKEfxF2Mjf90pw7FVq32TZQz4dWLt/view?usp=drive_link"><button type="button" class="btn btn-primary">Download CV</button></a> 
+           <a href="#contact"> <button type="button" class="btn btn-primary">Contact info</button></a>
+         </div>
+        </div>
+        <div class="right">
+       <img src="my photo.jpg" alt="img">
+        </div>
+
+    </div>
+   </div>
+   <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="my photo.jpg"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+              <img
+                src="exp-icon.png"
+                alt="Experience icon"
+                class="icon"
+              />
+              <h3>Experience</h3>
+              <p>Worked on realtime projects using HTML, CSS, and JavaScript.</p>
+            </div>
+            <div class="details-container" >
+              <img
+                src="edu-icon.jpg"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3>Education</h3>
+              <p>Btech [2023-2027]<br />Information Technology <br>
+              Cgpa:8.78 </p>
+            </div>
+          </div>
+          <div class="text-container">
+            <p>
+              I am a passionate software engineer with a strong foundation in programming languages such as Java, HTML, and CSS. Currently pursuing my Bachelor of Technology degree at Velagapudi Ramakrishna Siddhartha Engineering College, Vijayawada. Eager to apply my skills and knowledge to drive innovation and growth in the tech industry.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="Experience">
+      <div class="experience-container">
+<h1 class="title"> SKILLS</h1>
+  <div class="frontend-container">
+<h2>Frontend Development</h2>
+<div class="skills">
+  <div class="skill-item">
+    <img src="html-icon.png" alt="HTML Icon" />
+    <p>HTML</p>
+</div>
+  <div class="skill-item">
+    <img src="css-icon.png" alt="CSS Icon" />
+    <p>CSS</p>
+  </div>
+  <div class="skill-item">
+    <img src="javascript-icon.png" alt="JavaScript Icon" />
+    <p>JavaScript</p>
+  </div>
+  <div class="skill-item">
+    <img src="react-icon.png" alt="React Icon" />
+    <p>React</p>
+  </div>
+  <div class="skill-item">
+    <img src="bootstrap-icon.png" alt="Bootstrap Icon" />
+    <p>Bootstrap</p>
+  </div>
+  <div class="skill-item">
+    <img src="tailwind-icon.png" alt="Tailwind Icon" />
+    <p>Tailwind CSS</p>
+  </div>
+</div>
+</div>
+<!-- Backend Development -->
+  <div class="backend-container">
+ <h2>Backend Development</h2>
+<div class="skills">
+  <!-- <div class="skill-item">
+    <img src="nodejs-icon.png" alt="Node.js Icon" />
+    <p>Node.js</p>
+  </div>
+  <div class="skill-item">
+    <img src="express-icon.png" alt="Express.js Icon" />
+    <p>Express.js</p>
+  </div>  -->
+  <div class="skill-item">
+    <img src="mongodb-icon.png" alt="MongoDB Icon" />
+    <p>MongoDB</p>
+  </div>
+  <div class="skill-item">
+    <img src="mysql-icon.jpg" alt="MySQL Icon" />
+    <p>MySQL</p>
+  </div>
+  <div class="skill-item">
+    <img src="python-icon.png" alt="Python Icon" />
+    <p>Python</p>
+  </div>
+  <div class="skill-item">
+    <img src="django-icon.png" alt="Django Icon" />
+    <p>Django</p>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<section id="contact">
+<div class="contactform">
+<h1 class="title">Contact Me</h1>
+  <form action="#" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+</section>
+<!-- <script>
+  function showsidebar() {
+    document.querySelector('.sidebar').classList.add('show');
+  }
+
+  function closesidebar() {
+    // Prevent closing sidebar under 500px
+    if (window.innerWidth <= 500) return;
+    document.querySelector('.sidebar').classList.remove('show');
+  }
+
+  function handleSidebarOnResize() {
+    const sidebar = document.querySelector('.sidebar');
+    if (window.innerWidth <= 500) {
+      sidebar.classList.add('show');
+    } else {
+      sidebar.classList.remove('show');
+    }
+  }
+
+  // Open sidebar by default under 500px on load
+  window.addEventListener('DOMContentLoaded', handleSidebarOnResize);
+  // Update sidebar state on resize
+  window.addEventListener('resize', handleSidebarOnResize);
+</script> -->
+<script>
+  function showsidebar() {
+    document.querySelector('.sidebar').classList.add('show');
+  }
+
+  function closesidebar() {
+    document.querySelector('.sidebar').classList.remove('show');
+  }
+</script>
+
+</body>
+</html>
